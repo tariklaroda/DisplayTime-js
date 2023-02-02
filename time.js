@@ -1,47 +1,7 @@
-//get header element
-
-// const date = new Date();
-// let day = date.getDate();
-// let month = date.getMonth() + 1;
-// let year = date.getFullYear();
-
-// // This arrangement can be altered based on how we want the date's format to appear.
-// let currentDate = `${day}-${month}-${year}`;
-// console.log(currentDate); // "17-6-2022"
-
-// header.innerHTML = currentDate;
-
 function updateTime() {
   let timeContainer = document.getElementById("time");
   let dateContainer = document.getElementById("date");
   let now = new Date();
-
-  const monthsInYear = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const daysInWeek = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-
-  let day = correctDigit(now.getDay());
-  let month = correctDigit(now.getMonth());
 
   let hours = now.getHours();
   let minutes = correctDigit(now.getMinutes());
@@ -59,13 +19,8 @@ function updateTime() {
   }
 
   timeContainer.innerHTML = hours + ":" + minutes + ":" + seconds + " " + apm;
-  dateContainer.innerHTML = now;
-  //   dateContainer.innerHTML =
-  //     daysInWeek[now.getDay()] +
-  //     ", " +
-  //     monthsInYear[now.getMonth()] +
-  //     " " +
-  //     now.getTime();
+  dateContainer.innerHTML = now.toDateString() + " " + now.toLocaleTimeString();
+
   setTimeout(updateTime, 1000);
 }
 updateTime();
